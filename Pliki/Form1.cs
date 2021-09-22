@@ -28,31 +28,62 @@ namespace Pliki
             Stream myStream = null;
             OpenFileDialog Dialog = new OpenFileDialog();
             
-            Dialog.InitialDirectory = "c:\\";
+            Dialog.InitialDirectory = "C:\\";
             Dialog.Title = "Open text files";
-            Dialog.Filter = "txt files|*.txt|All files|*.*";
-            Dialog.FilterIndex = 2;
+            Dialog.Filter = "Text files *.txt|*.txt|All files *.*|*.*";
+            Dialog.FilterIndex = 1;
             Dialog.RestoreDirectory = true;
-
-            if (Dialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                try
+                if (Dialog.ShowDialog() == DialogResult.OK)
                 {
+
                     if ((myStream = Dialog.OpenFile()) != null)
                     {
-                        using (myStream)
+                        using (var reader = new StreamReader(Dialog.FileName))
                         {
-                            wyswietl.Text = Dialog.
+                            string linia;
+                            while ((linia = reader.ReadLine()) != null)
+                            {
+                                wyswietl.Text += linia;
+                                wyswietl.AppendText(Environment.NewLine);
+                                myStream.Close();
+                            }
                         }
                     }
                 }
-                catch(Exception ex)
-                {
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+            }
+        }
 
+        private void zapisz_Click(object sender, EventArgs e)
+        {
+
+            Stream myStream = null;
+            SaveFileDialog saveDialog = new SaveFileDialog();
+
+            saveDialog.InitialDirectory = "C:\\";      
+            saveDialog.Title = "Save text Files";
+            saveDialog.CheckFileExists = true;
+            saveDialog.CheckPathExists = true;
+            saveDialog.DefaultExt = "txt";
+            saveDialog.Filter = "Text files *.txt|*.txt|All files *.*|*.*";
+            saveDialog.FilterIndex = 2;
+            saveDialog.RestoreDirectory = true;
+            try
+            {
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(saveDialog.FileName, wyswietl.Text);
                 }
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Could not save file to disk. Original error: " + ex.Message);
+            }
         }
     }
 }

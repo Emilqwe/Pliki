@@ -33,6 +33,7 @@ namespace Pliki
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.otworz = new System.Windows.Forms.Button();
             this.zapisz = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // wyswietl
@@ -66,6 +67,7 @@ namespace Pliki
             this.zapisz.TabIndex = 2;
             this.zapisz.Text = "Zapisz";
             this.zapisz.UseVisualStyleBackColor = true;
+            this.zapisz.Click += new System.EventHandler(this.zapisz_Click);
             // 
             // Form1
             // 
@@ -88,6 +90,7 @@ namespace Pliki
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button otworz;
         private System.Windows.Forms.Button zapisz;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
