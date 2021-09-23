@@ -13,6 +13,7 @@ namespace Pliki
 {
     public partial class Form1 : Form
     {
+        Stream myStream = null;
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +26,6 @@ namespace Pliki
 
         private void otworz_Click(object sender, EventArgs e)
         {
-            Stream myStream = null;
             OpenFileDialog Dialog = new OpenFileDialog();
             
             Dialog.InitialDirectory = "C:\\";
@@ -62,7 +62,6 @@ namespace Pliki
         private void zapisz_Click(object sender, EventArgs e)
         {
 
-            Stream myStream = null;
             SaveFileDialog saveDialog = new SaveFileDialog();
 
             saveDialog.InitialDirectory = "C:\\";      
@@ -84,6 +83,71 @@ namespace Pliki
             {
                 MessageBox.Show("Error: Could not save file to disk. Original error: " + ex.Message);
             }
+        }
+
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            fontDialog1.Font = wyswietl2.Font;
+
+            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                wyswietl2.Font = fontDialog1.Font;
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+
+            saveDialog.InitialDirectory = "C:\\";
+            saveDialog.Title = "Save text Files";
+            saveDialog.CheckFileExists = true;
+            saveDialog.CheckPathExists = true;
+            saveDialog.DefaultExt = "txt";
+            saveDialog.Filter = "Text files *.txt|*.txt|All files *.*|*.*|Rich Text Format *.rtf|*.rtf";
+            saveDialog.FilterIndex = 2;
+            saveDialog.RestoreDirectory = true;
+            try
+            {
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(saveDialog.FileName, wyswietl.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Could not save file to disk. Original error: " + ex.Message);
+            }
+        }
+
+        private void kolor_Click(object sender, EventArgs e)
+        {
+            fontDialog1.ShowColor = true;
+
+            fontDialog1.Color = wyswietl2.ForeColor;
+
+            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                wyswietl2.ForeColor = fontDialog1.Color;
+            }
+        }
+
+        private void grubosc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pochylnosc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
