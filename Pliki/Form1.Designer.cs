@@ -39,12 +39,14 @@ namespace Pliki
             this.strona2 = new System.Windows.Forms.TabPage();
             this.zapisz2 = new System.Windows.Forms.Button();
             this.fontchange = new System.Windows.Forms.Button();
-            this.wyswietl2 = new System.Windows.Forms.TextBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.pochylnosc = new System.Windows.Forms.Button();
             this.grubosc = new System.Windows.Forms.Button();
             this.kolor = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.wyswietl2 = new System.Windows.Forms.RichTextBox();
+            this.podkreslenie = new System.Windows.Forms.Button();
+            this.przekreslenie = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.strona2.SuspendLayout();
@@ -108,12 +110,14 @@ namespace Pliki
             // 
             // strona2
             // 
+            this.strona2.Controls.Add(this.przekreslenie);
+            this.strona2.Controls.Add(this.podkreslenie);
+            this.strona2.Controls.Add(this.wyswietl2);
             this.strona2.Controls.Add(this.kolor);
             this.strona2.Controls.Add(this.grubosc);
             this.strona2.Controls.Add(this.pochylnosc);
             this.strona2.Controls.Add(this.zapisz2);
             this.strona2.Controls.Add(this.fontchange);
-            this.strona2.Controls.Add(this.wyswietl2);
             this.strona2.Location = new System.Drawing.Point(4, 22);
             this.strona2.Name = "strona2";
             this.strona2.Padding = new System.Windows.Forms.Padding(3);
@@ -141,14 +145,6 @@ namespace Pliki
             this.fontchange.Text = "Zmień Czcionkę";
             this.fontchange.UseVisualStyleBackColor = true;
             this.fontchange.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // wyswietl2
-            // 
-            this.wyswietl2.Location = new System.Drawing.Point(17, 15);
-            this.wyswietl2.Multiline = true;
-            this.wyswietl2.Name = "wyswietl2";
-            this.wyswietl2.Size = new System.Drawing.Size(459, 330);
-            this.wyswietl2.TabIndex = 0;
             // 
             // fontDialog1
             // 
@@ -184,6 +180,34 @@ namespace Pliki
             this.kolor.UseVisualStyleBackColor = true;
             this.kolor.Click += new System.EventHandler(this.kolor_Click);
             // 
+            // wyswietl2
+            // 
+            this.wyswietl2.Location = new System.Drawing.Point(17, 6);
+            this.wyswietl2.Name = "wyswietl2";
+            this.wyswietl2.Size = new System.Drawing.Size(450, 332);
+            this.wyswietl2.TabIndex = 6;
+            this.wyswietl2.Text = "";
+            // 
+            // podkreslenie
+            // 
+            this.podkreslenie.Location = new System.Drawing.Point(491, 88);
+            this.podkreslenie.Name = "podkreslenie";
+            this.podkreslenie.Size = new System.Drawing.Size(115, 23);
+            this.podkreslenie.TabIndex = 7;
+            this.podkreslenie.Text = "Podkreśl";
+            this.podkreslenie.UseVisualStyleBackColor = true;
+            this.podkreslenie.Click += new System.EventHandler(this.podkreslenie_Click);
+            // 
+            // przekreslenie
+            // 
+            this.przekreslenie.Location = new System.Drawing.Point(612, 88);
+            this.przekreslenie.Name = "przekreslenie";
+            this.przekreslenie.Size = new System.Drawing.Size(115, 23);
+            this.przekreslenie.TabIndex = 8;
+            this.przekreslenie.Text = "Przekreśl";
+            this.przekreslenie.UseVisualStyleBackColor = true;
+            this.przekreslenie.Click += new System.EventHandler(this.przekreslenie_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,7 +220,6 @@ namespace Pliki
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.strona2.ResumeLayout(false);
-            this.strona2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,14 +234,16 @@ namespace Pliki
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage strona2;
-        private System.Windows.Forms.TextBox wyswietl2;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.Button zapisz2;
-        private System.Windows.Forms.Button fontchange;
         private System.Windows.Forms.Button kolor;
         private System.Windows.Forms.Button grubosc;
         private System.Windows.Forms.Button pochylnosc;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        public System.Windows.Forms.Button fontchange;
+        private System.Windows.Forms.RichTextBox wyswietl2;
+        private System.Windows.Forms.Button podkreslenie;
+        private System.Windows.Forms.Button przekreslenie;
     }
 }
 

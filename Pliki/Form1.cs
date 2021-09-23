@@ -92,7 +92,7 @@ namespace Pliki
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            FontDialog fontDialog = new FontDialog();
 
             fontDialog1.Font = wyswietl2.Font;
 
@@ -142,12 +142,63 @@ namespace Pliki
 
         private void grubosc_Click(object sender, EventArgs e)
         {
+            int start = wyswietl2.SelectionStart;
+            int dlugosc = wyswietl2.SelectionLength;
 
+            wyswietl2.SelectionFont = new Font(wyswietl2.Font, FontStyle.Bold);
+
+            
+            wyswietl2.SelectionStart = wyswietl2.SelectionStart + wyswietl2.SelectionLength;
+            wyswietl2.SelectionLength = 0;
+
+            wyswietl2.SelectionFont = wyswietl2.Font;
+
+            wyswietl2.Select(start, dlugosc);
         }
 
         private void pochylnosc_Click(object sender, EventArgs e)
         {
+                 int start = wyswietl2.SelectionStart;
+                 int dlugosc = wyswietl2.SelectionLength;
 
+                 wyswietl2.SelectionFont = new Font(wyswietl2.Font, FontStyle.Italic);
+       
+                 wyswietl2.SelectionStart = wyswietl2.SelectionStart + wyswietl2.SelectionLength;
+                 wyswietl2.SelectionLength = 0;
+
+                 wyswietl2.SelectionFont = wyswietl2.Font;
+
+                 wyswietl2.Select(start, dlugosc);
+        }
+
+        private void podkreslenie_Click(object sender, EventArgs e)
+        {
+            int start = wyswietl2.SelectionStart;
+            int dlugosc = wyswietl2.SelectionLength;
+
+            wyswietl2.SelectionFont = new Font(wyswietl2.Font, FontStyle.Underline);
+
+            wyswietl2.SelectionStart = wyswietl2.SelectionStart + wyswietl2.SelectionLength;
+            wyswietl2.SelectionLength = 0;
+
+            wyswietl2.SelectionFont = wyswietl2.Font;
+
+            wyswietl2.Select(start, dlugosc);
+        }
+
+        private void przekreslenie_Click(object sender, EventArgs e)
+        {
+            int start = wyswietl2.SelectionStart;
+            int dlugosc = wyswietl2.SelectionLength;
+
+            wyswietl2.SelectionFont = new Font(wyswietl2.Font, FontStyle.Strikeout);
+
+            wyswietl2.SelectionStart = wyswietl2.SelectionStart + wyswietl2.SelectionLength;
+            wyswietl2.SelectionLength = 0;
+
+            wyswietl2.SelectionFont = wyswietl2.Font;
+
+            wyswietl2.Select(start, dlugosc);
         }
     }
 }
