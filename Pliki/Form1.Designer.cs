@@ -37,16 +37,17 @@ namespace Pliki
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.strona2 = new System.Windows.Forms.TabPage();
+            this.przekreslenie = new System.Windows.Forms.Button();
+            this.podkreslenie = new System.Windows.Forms.Button();
+            this.wyswietl2 = new System.Windows.Forms.RichTextBox();
+            this.kolor = new System.Windows.Forms.Button();
+            this.grubosc = new System.Windows.Forms.Button();
+            this.pochylnosc = new System.Windows.Forms.Button();
             this.zapisz2 = new System.Windows.Forms.Button();
             this.fontchange = new System.Windows.Forms.Button();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.pochylnosc = new System.Windows.Forms.Button();
-            this.grubosc = new System.Windows.Forms.Button();
-            this.kolor = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.wyswietl2 = new System.Windows.Forms.RichTextBox();
-            this.podkreslenie = new System.Windows.Forms.Button();
-            this.przekreslenie = new System.Windows.Forms.Button();
+            this.normalnie = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.strona2.SuspendLayout();
@@ -110,6 +111,7 @@ namespace Pliki
             // 
             // strona2
             // 
+            this.strona2.Controls.Add(this.normalnie);
             this.strona2.Controls.Add(this.przekreslenie);
             this.strona2.Controls.Add(this.podkreslenie);
             this.strona2.Controls.Add(this.wyswietl2);
@@ -125,6 +127,64 @@ namespace Pliki
             this.strona2.TabIndex = 1;
             this.strona2.Text = "tabPage2";
             this.strona2.UseVisualStyleBackColor = true;
+            // 
+            // przekreslenie
+            // 
+            this.przekreslenie.Location = new System.Drawing.Point(612, 88);
+            this.przekreslenie.Name = "przekreslenie";
+            this.przekreslenie.Size = new System.Drawing.Size(115, 23);
+            this.przekreslenie.TabIndex = 8;
+            this.przekreslenie.Text = "Przekreśl";
+            this.przekreslenie.UseVisualStyleBackColor = true;
+            this.przekreslenie.Click += new System.EventHandler(this.przekreslenie_Click);
+            // 
+            // podkreslenie
+            // 
+            this.podkreslenie.Location = new System.Drawing.Point(491, 88);
+            this.podkreslenie.Name = "podkreslenie";
+            this.podkreslenie.Size = new System.Drawing.Size(115, 23);
+            this.podkreslenie.TabIndex = 7;
+            this.podkreslenie.Text = "Podkreśl";
+            this.podkreslenie.UseVisualStyleBackColor = true;
+            this.podkreslenie.Click += new System.EventHandler(this.podkreslenie_Click);
+            // 
+            // wyswietl2
+            // 
+            this.wyswietl2.Location = new System.Drawing.Point(17, 6);
+            this.wyswietl2.Name = "wyswietl2";
+            this.wyswietl2.Size = new System.Drawing.Size(450, 332);
+            this.wyswietl2.TabIndex = 6;
+            this.wyswietl2.Text = "";
+            // 
+            // kolor
+            // 
+            this.kolor.Location = new System.Drawing.Point(612, 30);
+            this.kolor.Name = "kolor";
+            this.kolor.Size = new System.Drawing.Size(115, 23);
+            this.kolor.TabIndex = 5;
+            this.kolor.Text = "Zmień Kolor";
+            this.kolor.UseVisualStyleBackColor = true;
+            this.kolor.Click += new System.EventHandler(this.kolor_Click);
+            // 
+            // grubosc
+            // 
+            this.grubosc.Location = new System.Drawing.Point(491, 59);
+            this.grubosc.Name = "grubosc";
+            this.grubosc.Size = new System.Drawing.Size(115, 23);
+            this.grubosc.TabIndex = 4;
+            this.grubosc.Text = "Pogrub";
+            this.grubosc.UseVisualStyleBackColor = true;
+            this.grubosc.Click += new System.EventHandler(this.grubosc_Click);
+            // 
+            // pochylnosc
+            // 
+            this.pochylnosc.Location = new System.Drawing.Point(612, 59);
+            this.pochylnosc.Name = "pochylnosc";
+            this.pochylnosc.Size = new System.Drawing.Size(115, 23);
+            this.pochylnosc.TabIndex = 3;
+            this.pochylnosc.Text = "Pochyl";
+            this.pochylnosc.UseVisualStyleBackColor = true;
+            this.pochylnosc.Click += new System.EventHandler(this.pochylnosc_Click);
             // 
             // zapisz2
             // 
@@ -150,63 +210,15 @@ namespace Pliki
             // 
             this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
             // 
-            // pochylnosc
+            // normalnie
             // 
-            this.pochylnosc.Location = new System.Drawing.Point(612, 59);
-            this.pochylnosc.Name = "pochylnosc";
-            this.pochylnosc.Size = new System.Drawing.Size(115, 23);
-            this.pochylnosc.TabIndex = 3;
-            this.pochylnosc.Text = "Pochyl";
-            this.pochylnosc.UseVisualStyleBackColor = true;
-            this.pochylnosc.Click += new System.EventHandler(this.pochylnosc_Click);
-            // 
-            // grubosc
-            // 
-            this.grubosc.Location = new System.Drawing.Point(491, 59);
-            this.grubosc.Name = "grubosc";
-            this.grubosc.Size = new System.Drawing.Size(115, 23);
-            this.grubosc.TabIndex = 4;
-            this.grubosc.Text = "Pogrub";
-            this.grubosc.UseVisualStyleBackColor = true;
-            this.grubosc.Click += new System.EventHandler(this.grubosc_Click);
-            // 
-            // kolor
-            // 
-            this.kolor.Location = new System.Drawing.Point(612, 30);
-            this.kolor.Name = "kolor";
-            this.kolor.Size = new System.Drawing.Size(115, 23);
-            this.kolor.TabIndex = 5;
-            this.kolor.Text = "Zmień Kolor";
-            this.kolor.UseVisualStyleBackColor = true;
-            this.kolor.Click += new System.EventHandler(this.kolor_Click);
-            // 
-            // wyswietl2
-            // 
-            this.wyswietl2.Location = new System.Drawing.Point(17, 6);
-            this.wyswietl2.Name = "wyswietl2";
-            this.wyswietl2.Size = new System.Drawing.Size(450, 332);
-            this.wyswietl2.TabIndex = 6;
-            this.wyswietl2.Text = "";
-            // 
-            // podkreslenie
-            // 
-            this.podkreslenie.Location = new System.Drawing.Point(491, 88);
-            this.podkreslenie.Name = "podkreslenie";
-            this.podkreslenie.Size = new System.Drawing.Size(115, 23);
-            this.podkreslenie.TabIndex = 7;
-            this.podkreslenie.Text = "Podkreśl";
-            this.podkreslenie.UseVisualStyleBackColor = true;
-            this.podkreslenie.Click += new System.EventHandler(this.podkreslenie_Click);
-            // 
-            // przekreslenie
-            // 
-            this.przekreslenie.Location = new System.Drawing.Point(612, 88);
-            this.przekreslenie.Name = "przekreslenie";
-            this.przekreslenie.Size = new System.Drawing.Size(115, 23);
-            this.przekreslenie.TabIndex = 8;
-            this.przekreslenie.Text = "Przekreśl";
-            this.przekreslenie.UseVisualStyleBackColor = true;
-            this.przekreslenie.Click += new System.EventHandler(this.przekreslenie_Click);
+            this.normalnie.Location = new System.Drawing.Point(491, 117);
+            this.normalnie.Name = "normalnie";
+            this.normalnie.Size = new System.Drawing.Size(236, 23);
+            this.normalnie.TabIndex = 9;
+            this.normalnie.Text = "Normalnie";
+            this.normalnie.UseVisualStyleBackColor = true;
+            this.normalnie.Click += new System.EventHandler(this.normalnie_Click);
             // 
             // Form1
             // 
@@ -244,6 +256,7 @@ namespace Pliki
         private System.Windows.Forms.RichTextBox wyswietl2;
         private System.Windows.Forms.Button podkreslenie;
         private System.Windows.Forms.Button przekreslenie;
+        private System.Windows.Forms.Button normalnie;
     }
 }
 

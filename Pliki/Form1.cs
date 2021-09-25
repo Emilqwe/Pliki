@@ -130,13 +130,13 @@ namespace Pliki
 
         private void kolor_Click(object sender, EventArgs e)
         {
-            fontDialog1.ShowColor = true;
+            
 
-            fontDialog1.Color = wyswietl2.ForeColor;
+            colorDialog1.Color = wyswietl2.ForeColor;
 
-            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+            if (colorDialog1.ShowDialog() != DialogResult.Cancel)
             {
-                wyswietl2.ForeColor = fontDialog1.Color;
+                wyswietl2.ForeColor = colorDialog1.Color;
             }
         }
 
@@ -192,6 +192,21 @@ namespace Pliki
             int dlugosc = wyswietl2.SelectionLength;
 
             wyswietl2.SelectionFont = new Font(wyswietl2.Font, FontStyle.Strikeout);
+
+            wyswietl2.SelectionStart = wyswietl2.SelectionStart + wyswietl2.SelectionLength;
+            wyswietl2.SelectionLength = 0;
+
+            wyswietl2.SelectionFont = wyswietl2.Font;
+
+            wyswietl2.Select(start, dlugosc);
+        }
+
+        private void normalnie_Click(object sender, EventArgs e)
+        {
+            int start = wyswietl2.SelectionStart;
+            int dlugosc = wyswietl2.SelectionLength;
+
+            wyswietl2.SelectionFont = new Font(wyswietl2.Font, FontStyle.Regular);
 
             wyswietl2.SelectionStart = wyswietl2.SelectionStart + wyswietl2.SelectionLength;
             wyswietl2.SelectionLength = 0;
